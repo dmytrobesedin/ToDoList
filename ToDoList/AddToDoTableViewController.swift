@@ -7,31 +7,125 @@
 //
 
 import UIKit
+import  Firebase
+
 
 class AddToDoTableViewController: UITableViewController {
-
+    var isPass = false
+    var dateInterval: TimeInterval = 0
+    
+    
+    
+    @IBOutlet weak var nameTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var descriptionTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var dateOfComplitTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var dateOfComplitDatePickerOutlet: UIDatePicker!
+    
+    @IBOutlet weak var isComplitSwitchOutlet: UISwitch!{
+        didSet {
+            if isComplitSwitchOutlet.isOn {
+                isPass = true
+            }
+            else{
+                isPass = false
+            }
+        }
+    }
+    
+    
+    let toDoList = [ToDo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        // subscribe delegate
+        
+        nameTextFieldOutlet.delegate = self
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBarButtonItemAction))
+     
+    }
+    // MARK: - Acion
+    
+    @IBAction func isComplitSwitchAction(_ sender: Any) {
+     //   isComplitSwitchOutlet.isOn ? isPass = true : isPass = false
+        if isComplitSwitchOutlet.isOn {isPass = true}
+        else{isPass = false}
+    }
+    
+    @IBAction func dateOfComplitAction(_ sender: Any) {
+         // add to memmory for douwnload date
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        nameTextFieldOutlet.becomeFirstResponder()
+        descriptionTextFieldOutlet.becomeFirstResponder()
+        
+        
+    }
+    
+    // MARK: - SaveButton
+     @objc func saveBarButtonItemAction(){
+        guard let name = nameTextFieldOutlet.text else{return}
+        guard let description = descriptionTextFieldOutlet.text else{return}
+        guard let dateOfComplit = dateOfComplitTextFieldOutlet.text else{return}
+
+        if (!name.isEmpty && !description.isEmpty){
+            let ref = Database.database().reference()
+            let toDoUid = ref.childByAutoId()
+        guard   let uidToDoKey = toDoUid.key else{return}
+    
+            
+            let newToDo: [String:Any] = ["uidToDo": uidToDoKey, "name": name, "description": description, "dateOfComplit": 2.333, "isComplit": isPass]
+            toDoUid.setValue(newToDo)
+         
+            var currentViewControllerArray = self.navigationController?.viewControllers
+            currentViewControllerArray?.removeLast()
+            guard let newController = currentViewControllerArray else{return}
+            self.navigationController?.viewControllers = newController
+//            self.navigationController?.pushViewController(addToDoContoller, animated: true)
+            self.dismiss(animated: false, completion: nil)
+        }
+        else{
+            
+            print("some trobless ")
+        }
+
+      
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    
+    
+    // MARK: - loadview
+    func loadViewController() {
+    
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
+//    // MARK: - Table view data source
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//        
+//    }
+//    
+    
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -87,4 +181,7 @@ class AddToDoTableViewController: UITableViewController {
     }
     */
 
+}
+extension AddToDoTableViewController: UITextFieldDelegate{
+    
 }

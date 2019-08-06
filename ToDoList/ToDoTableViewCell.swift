@@ -9,7 +9,8 @@
 import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
-
+ 
+    let toDoList = [ToDo]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,7 +11,7 @@ import Firebase
 
 
 class ToDo {
- //   var uid: String?
+    var uidToDo: String?
     var name: String?
     var description: String?
     var dateOfComplit: Double?
@@ -20,12 +20,14 @@ class ToDo {
     
     
     
-    init(dataSnapshot:DataSnapshot) {
-      //  self.uid = dataSnapshot.value(forKey: "uid") as? String
-        self.name = dataSnapshot.value(forKey: "name") as? String 
-        self.description = dataSnapshot.value(forKey: "description") as? String
-        self.dateOfComplit  = dataSnapshot.value(forKey: "dateOfComplit") as? Double
-        self.isComplit = dataSnapshot.value(forKey: "isComplit") as? Bool
+    init(dataSnapshot: DataSnapshot) {
+        
+        let dict = dataSnapshot.value as? [String: AnyObject]
+        self.uidToDo = dict?["uidToDo"]  as? String
+        self.name = dict?["name"] as? String
+        self.description = dict?["description"] as? String
+        self.dateOfComplit  = dict?["dateOfComplit"] as? Double
+        self.isComplit = dict?["isComplit"] as? Bool
         self.link = dataSnapshot.ref
         
     }

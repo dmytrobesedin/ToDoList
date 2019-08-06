@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D7AE58D22D5086A000FD53E /* AddToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7AE58C22D5086A000FD53E /* AddToDoTableViewController.swift */; };
-		2D7AE59122D649B7000FD53E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AE59022D649B7000FD53E /* GoogleService-Info.plist */; };
 		2DE0DEB422CE1F4A005A6D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0DEB322CE1F4A005A6D94 /* AppDelegate.swift */; };
 		2DE0DEB922CE1F4A005A6D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE0DEB722CE1F4A005A6D94 /* Main.storyboard */; };
 		2DE0DEBB22CE1F4B005A6D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE0DEBA22CE1F4B005A6D94 /* Assets.xcassets */; };
@@ -16,12 +15,12 @@
 		2DE0DECA22CE486C005A6D94 /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0DEC922CE486C005A6D94 /* ToDoListTableViewController.swift */; };
 		2DE0DECF22CE48A4005A6D94 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0DECE22CE48A4005A6D94 /* ToDo.swift */; };
 		2DE0DED122CF50A1005A6D94 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0DED022CF50A1005A6D94 /* ToDoTableViewCell.swift */; };
+		2DFD99BD22F9C36A0097996B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD99BC22F9C36A0097996B /* GoogleService-Info.plist */; };
 		C7CF856D8B2013EC532A3A12 /* Pods_ToDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58154C61DC6C54AC352C0610 /* Pods_ToDoList.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D7AE58C22D5086A000FD53E /* AddToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoTableViewController.swift; sourceTree = "<group>"; };
-		2D7AE59022D649B7000FD53E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DE0DEB022CE1F4A005A6D94 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE0DEB322CE1F4A005A6D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DE0DEB822CE1F4A005A6D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		2DE0DEC922CE486C005A6D94 /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		2DE0DECE22CE48A4005A6D94 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		2DE0DED022CF50A1005A6D94 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		2DFD99BC22F9C36A0097996B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50CF408A268AFE76178029D6 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		58154C61DC6C54AC352C0610 /* Pods_ToDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FF538467C04FBFAF50CD08 /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		2DE0DEB222CE1F4A005A6D94 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				2D7AE59022D649B7000FD53E /* GoogleService-Info.plist */,
+				2DFD99BC22F9C36A0097996B /* GoogleService-Info.plist */,
 				2DE0DECB22CE487E005A6D94 /* Model */,
 				2DE0DEB322CE1F4A005A6D94 /* AppDelegate.swift */,
 				2DE0DEB722CE1F4A005A6D94 /* Main.storyboard */,
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DE0DEBE22CE1F4B005A6D94 /* LaunchScreen.storyboard in Resources */,
-				2D7AE59122D649B7000FD53E /* GoogleService-Info.plist in Resources */,
+				2DFD99BD22F9C36A0097996B /* GoogleService-Info.plist in Resources */,
 				2DE0DEBB22CE1F4B005A6D94 /* Assets.xcassets in Resources */,
 				2DE0DEB922CE1F4A005A6D94 /* Main.storyboard in Resources */,
 			);
