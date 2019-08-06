@@ -57,13 +57,14 @@ class AddToDoTableViewController: UITableViewController {
     // MARK: - Acion
     
     @IBAction func isComplitSwitchAction(_ sender: Any) {
-     //   isComplitSwitchOutlet.isOn ? isPass = true : isPass = false
         if isComplitSwitchOutlet.isOn {isPass = true}
         else{isPass = false}
     }
     
     @IBAction func dateOfComplitAction(_ sender: Any) {
-         // add to memmory for douwnload date
+         // add to memory for douwnload date
+        dateInterval = dateOfComplitDatePickerOutlet.date.timeIntervalSinceNow
+      dateOfComplitTextFieldOutlet.text =   dateTransformToString(date: dateOfComplitDatePickerOutlet.date)
         
     }
     
@@ -86,22 +87,32 @@ class AddToDoTableViewController: UITableViewController {
         guard   let uidToDoKey = toDoUid.key else{return}
     
             
-            let newToDo: [String:Any] = ["uidToDo": uidToDoKey, "name": name, "description": description, "dateOfComplit": 2.333, "isComplit": isPass]
+            let newToDo: [String:Any] = ["uidToDo": uidToDoKey, "name": name, "description": description, "dateOfComplit": dateInterval, "isComplit": isPass]
             toDoUid.setValue(newToDo)
          
             var currentViewControllerArray = self.navigationController?.viewControllers
             currentViewControllerArray?.removeLast()
             guard let newController = currentViewControllerArray else{return}
             self.navigationController?.viewControllers = newController
-//            self.navigationController?.pushViewController(addToDoContoller, animated: true)
             self.dismiss(animated: false, completion: nil)
         }
         else{
-            
-            print("some trobless ")
+          alertAction(title: "Error", message: "Some trobless with textField", viewController: self)
         }
 
       
+    }
+    func alertAction(title: String?,message:String?, viewController: UIViewController)  {
+        let actionController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actionController.addAction(.init(title: "Ok", style: .default, handler: nil))
+        viewController.present(actionController, animated: true, completion: nil)
+    }
+    func dateTransformToString(date:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "uk_UA")
+        let dateToString = dateFormatter.string(from: date)
+        return dateToString
     }
 
     
